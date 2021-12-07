@@ -1,5 +1,6 @@
 Repository uses graphql React and apolo client to search github users their repositories and issues
 also lets you add an issue
+![](snap.png)
 
 it will be needed to add github api key in the environment variable REACT_APP_GITHUB_KEY
 
