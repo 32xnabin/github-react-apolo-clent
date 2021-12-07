@@ -82,6 +82,7 @@ const IssueList = ({ repoId, repoName, repInfo, repoOwner }) => {
   useEffect(() => {
     setDialogOpened(false);
     loadIssues(10);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   if (loading) {

@@ -1,21 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { ApolloProvider } from '@apollo/react-hooks';
 import client from './client';
-import { Typography, Container, makeStyles } from '@material-ui/core';
+import { Container } from '@material-ui/core';
 import UserList from './components/UserList';
 import IssueList from './components/IssueList';
 import SearchBar from './components/SearchBar';
 
-const useStyles = makeStyles({
-  title: {
-    marginTop: '1rem',
-    marginBottom: '1rem',
-    textAlign: 'center',
-  },
-});
-
 const App = () => {
-  const classes = useStyles();
   const [searchTerm, setSearchTerm] = useState('');
   const [owner, setOwner] = useState(null);
   const [selectedRepo, setSelectedRepo] = useState(null);

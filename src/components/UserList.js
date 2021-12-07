@@ -33,21 +33,6 @@ const UserList = ({
   const [repos, setRepos] = useState(null);
   const [debouncedSearchTerm] = useDebounce(searchTerm, 1000);
 
-  const [hasNextPage, setHasNextPage] = useState(false);
-  const [endCursor, setEndCursor] = useState('');
-  const [totalCount, setTotalCount] = useState(0);
-  const [after, setAfter] = useState(null);
-  const setUpPagination = () => {
-    if (data) {
-      setEndCursor(data.search.pageInfo.endCursor);
-      setHasNextPage(data.search.pageInfo.hasNextPage);
-      setTotalCount(data.search.totalCount);
-    }
-  };
-  const moveNext = () => {
-    setAfter(endCursor);
-  };
-
   const { data, loading, error } = useQuery(SEARCH_FOR_USERS, {
     variables: { search_term: debouncedSearchTerm },
   });
@@ -64,7 +49,6 @@ const UserList = ({
 
   useEffect(() => {
     setRepos(null);
-    setUpPagination();
   }, [data]);
 
   if (loading) {
