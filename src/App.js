@@ -12,7 +12,9 @@ const App = () => {
   const [selectedRepo, setSelectedRepo] = useState(null);
   const [repoId, setRepoId] = useState(null);
   const [showIssues, setShowIssues] = useState(false);
-  useEffect(() => {}, [showIssues]);
+  useEffect(() => {
+    setOwner(null);
+  }, [showIssues]);
   return (
     <ApolloProvider client={client}>
       <Container>
